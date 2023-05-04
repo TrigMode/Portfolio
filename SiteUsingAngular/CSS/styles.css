@@ -1,0 +1,130 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #fcf5c7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.section {
+  position: relative;
+  width: 300px;
+  height: 1000px;
+  border-radius: 20px;
+  flex: 1;
+  margin: 0 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.section:not(.expanded):hover {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.section-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transition: all 0.4s ease;
+}
+
+.section:hover .section-content {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.section.expanded {
+  flex-grow: 4;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.section h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.section p {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.section-close {
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.section-close span {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  transform-origin: center;
+  transition: transform 0.4s ease;
+}
+
+.section-close span:first-child {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.section-close span:last-child {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.section.expanded .section-close {
+  display: block;
+}
+
+.section-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.7);
+  transition: filter 0.4s ease;
+}
+
+.section:not(.expanded):hover .section-bg {
+  filter: brightness(0.5);
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="portfolioApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Website</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="JS/app.js"></script>
+</head>
+<body>
+  <div class="container" ng-controller="PortfolioController">
+    <div class="section" ng-repeat="section in sections" ng-click="expand(section)" ng-class="{'expanded': section.expanded}">
+      <div class="section-bg"></div>
+      <div class="section-content">
+        <h2>{{ section.title }}</h2>
+        <p>{{ section.description }}</p>
+      </div>
+      <div class="section-close" ng-click="contract(); $event.stopPropagation();">
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
