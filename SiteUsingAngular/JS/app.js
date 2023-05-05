@@ -4,7 +4,7 @@ app.controller('PortfolioController', function ($scope) {
   $scope.sections = [
     { title: 'Home', description: 'Welcome to my portfolio website.' },
     { title: 'About', description: 'Hi! I am a student studying Computer Science.' },
-    { title: 'Work', description: 'Work In Progress. Check out my latest projects.'},
+    { title: 'Work', description: 'Work In Progress. Check out my latest projects.' },
   ];
   $scope.expandedSection = null;
 

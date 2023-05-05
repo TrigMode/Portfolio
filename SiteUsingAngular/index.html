@@ -10,9 +10,13 @@
   <script src="JS/app.js"></script>
 </head>
 <body>
-  <div class="container" ng-controller="PortfolioController">
-    <div class="section" ng-repeat="section in sections" ng-click="expand(section)" ng-class="{'expanded': section.expanded}">
-      <div class="section-bg"></div>
+  <div class="container" ng-app="portfolioApp" ng-controller="PortfolioController">
+    <div
+      class="section"
+      ng-repeat="section in sections"
+      ng-class="{ expanded: section.expanded }"
+      ng-click="expand(section)"
+    >
       <div class="section-content">
         <h2>{{ section.title }}</h2>
         <p>{{ section.description }}</p>
@@ -21,7 +25,8 @@
         <span></span>
         <span></span>
       </div>
+      <div class="section-ripple"></div>
     </div>
-  </div>
+  </div>  
 </body>
 </html>

@@ -128,3 +128,33 @@ body {
 .section:not(.expanded):hover .section-bg {
   filter: brightness(0.5);
 }
+
+.section-ripple {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.5) 1%, transparent 1%);
+  background-size: 200% 200%;
+  transition: opacity 0.5s, background-position 0.5s;
+}
+
+.section.expanded .section-ripple {
+  opacity: 1;
+  background-position: 50% 200%;
+}
+
+@keyframes ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 300%;
+    height: 300%;
+    opacity: 0;
+  }
+}
